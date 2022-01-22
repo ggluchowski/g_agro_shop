@@ -1,0 +1,13 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  background-color: $color-main;
+  font-size: 1.2em;
+  border-radius: 25px;
+  padding: 10px 20px;
+
+  &:hover {
+    color: $color-hover;
+    cursor: pointer;
+  }
+}

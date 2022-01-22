@@ -1,5 +1,11 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
 
-// .root {
-
-// }
+.root {
+  background-image: url("/images/background-1.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 400px;
+  overflow: hidden;
+  object-fit: scale-down;
+  color: $color-light;
+}

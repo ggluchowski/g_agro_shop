@@ -3,14 +3,17 @@ import PropTypes from 'prop-types';
 import styles from './MainLayout.module.scss';
 
 import clsx from 'clsx';
+import { Header } from '../Header/Header';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 const Component = ({ className, children }) => (
   <div className={clsx(className, styles.root)}>
+    <Header />
     <h2>MainLayout</h2>
     {children}
+
   </div>
 );
 
