@@ -7,6 +7,9 @@ import { CssBaseline } from '@material-ui/core';
 
 import { store } from './redux/store';
 
+import './styles/bootstrap.scss';
+import './styles/global.scss';
+
 // komponenty
 import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Homepage } from './components/views/Homepage/Homepage';

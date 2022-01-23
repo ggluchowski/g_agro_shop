@@ -1,5 +1,7 @@
 @import 'settings.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald:wght@300&family=Sriracha&display=swap');
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -19,3 +21,7 @@ body {
 //   margin: 0 auto;
 //   padding: 0 20px;
 // }
+
+.align{
+  align-items: center;
+}

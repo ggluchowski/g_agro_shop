@@ -1,18 +1,12 @@
 @import "../../../styles/settings.scss";
+@import "../../../styles/global.scss";
 
 .root {
   border-bottom: 1px solid $color-light;
   height: 140px;
   padding: 20px 0;
   display: flex;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 1140px;
-  height: 100%;
+  width: 100%;
 }
 
 .logo {

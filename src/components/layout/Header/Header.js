@@ -7,14 +7,14 @@ import { TopBar } from '../../features/TopBar/TopBar';
 import { MenuBar } from '../../features/MenuBar/MenuBar';
 import { Hero } from '../../features/Hero/Hero';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 const Component = ({ className, children }) => (
   <header className={clsx(className, styles.root)}>
     <TopBar />
     <MenuBar />
-    <Hero />
+    <Hero
+      quote='Nie można dobrze myśleć, kochać i dobrze spać, jeśli nie jadło się dobrze.'
+      author='--Virginia Woolf'
+    />
   </header>
 );
 
@@ -22,16 +22,6 @@ Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };
-
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   Component as Header,

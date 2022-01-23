@@ -3,31 +3,30 @@ import PropTypes from 'prop-types';
 import styles from './Hero.module.scss';
 
 import clsx from 'clsx';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
-const Component = ({ className, children }) => (
+const Component = ({ className, children, quote, author }) => (
   <div className={clsx(className, styles.root)}>
-    <h2>Hero</h2>
-    {children}
+    <Container>
+      <Row>
+        <blockquote className={styles.quote}>
+          <p>{quote}</p>
+          <footer>
+            <i>{author}</i>
+          </footer>
+        </blockquote>
+      </Row>
+    </Container>
   </div>
 );
 
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  quote: PropTypes.string,
+  author: PropTypes.string,
 };
-
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   Component as Hero,

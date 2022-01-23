@@ -1,16 +1,8 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
 
 .root {
-  height: 65px;
-}
-
-.container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 1140px;
-  height: 100%;
-  margin-top: 20px;
 }
 
 nav a {
@@ -18,8 +10,10 @@ nav a {
   font-size: 1.2em;
   font-weight: 900;
   text-decoration: none;
-  margin: 0 30px;
-  text-align: center;
+  margin: 30px 30px;
+  display:flex;
+  flex-direction: column;
+
 
   &:hover {
     color: $color-hover;
@@ -30,4 +24,5 @@ nav a {
 .navMenuContainer{
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }

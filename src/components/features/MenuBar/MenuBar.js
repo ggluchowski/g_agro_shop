@@ -6,69 +6,60 @@ import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoneyCheck, faAddressCard, faHome, faPhoneVolume, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
-
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Component = ({ className, children }) => (
   <div className={clsx(className, styles.root)}>
-    <div className={styles.container}>
-      <nav className={styles.navMenuContainer}>
-        <NavLink to='/' activeClassName='active' className={styles.menuLink}>
-          <FontAwesomeIcon
-            className={styles.icon}
-            icon={faHome} />
-          <div>Home</div>
-
-        </NavLink>
-        <NavLink to='/about'>
-          <FontAwesomeIcon
-            className={styles.icon}
-            icon={faAddressCard} />
-          <div>O nas</div>
-        </NavLink>
-        <NavLink to='/contact'>
-          <FontAwesomeIcon
-            className={styles.icon}
-            icon={faPhoneVolume} />
-          <div>Kontakt</div>
-        </NavLink>
-        <NavLink to='/order'>
-          <FontAwesomeIcon
-            className={styles.icon}
-            icon={faMoneyCheck} />
-          <div>Zamówienie</div>
-        </NavLink>
-        <NavLink to='/cart'
-        // to={{
-        //   pathname: `/${loggedUser}`,
-        //   state: userBulletinFilter,
-        // }}
-        >
-          <FontAwesomeIcon
-            className={styles.icon}
-            icon={faShoppingCart} />
-          <div>Koszyk</div>
-        </NavLink>
-      </nav>
-    </div>
-  </div>
+    <Container>
+      <Row>
+        <nav className={styles.navMenuContainer}>
+          <Col>
+            <NavLink to='/' activeClassName='active'>
+              <FontAwesomeIcon
+                icon={faHome} />
+              <div>Home</div>
+            </NavLink>
+          </Col>
+          <Col>
+            <NavLink to='/about'>
+              <FontAwesomeIcon
+                icon={faAddressCard} />
+              <div>O nas</div>
+            </NavLink>
+          </Col>
+          <Col>
+            <NavLink to='/contact'>
+              <FontAwesomeIcon
+                icon={faPhoneVolume} />
+              <div>Kontakt</div>
+            </NavLink>
+          </Col>
+          <Col>
+            <NavLink to='/order'>
+              <FontAwesomeIcon
+                icon={faMoneyCheck} />
+              <div>Zamówienie</div>
+            </NavLink>
+          </Col>
+          <Col>
+            <NavLink to='/cart'>
+              <FontAwesomeIcon
+                icon={faShoppingCart} />
+              <div>Koszyk</div>
+            </NavLink>
+          </Col>
+        </nav>
+      </Row>
+    </Container>
+  </div >
 );
 
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };
-
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   Component as MenuBar,
