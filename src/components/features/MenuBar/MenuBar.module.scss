@@ -1,5 +1,33 @@
 @import '../../../styles/settings.scss';
 
-// .root {
+.root {
+  height: 65px;
+}
 
-// }
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 1140px;
+  height: 100%;
+  margin-top: 20px;
+}
+
+nav a {
+  color: $color-light;
+  font-size: 1.2em;
+  font-weight: 900;
+  text-decoration: none;
+  margin: 0 30px;
+  text-align: center;
+
+  &:hover {
+    color: $color-hover;
+    cursor: pointer;
+  }
+}
+
+.navMenuContainer{
+  display: flex;
+  flex-direction: row;
+}

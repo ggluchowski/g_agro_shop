@@ -5,6 +5,7 @@ import styles from './TopBar.module.scss';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone } from '@fortawesome/free-solid-svg-icons';
+
 import { Button } from '../../common/Button/Button';
 
 // import { connect } from 'react-redux';
