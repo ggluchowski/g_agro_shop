@@ -1,6 +1,28 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
 @import "../../../styles/global.scss";
 
-// .root {
+.root {
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+}
 
-// }
+.head {
+  font-size: 100px;
+}
+
+.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: red;
+    font-size: 25px;
+  }
+}
