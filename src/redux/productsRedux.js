@@ -1,4 +1,4 @@
-import Axios from 'axios';
+// import Axios from 'axios';
 
 /* selectors */
 export const getAll = ({ products }) => products.data;
