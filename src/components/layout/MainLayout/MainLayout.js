@@ -6,10 +6,15 @@ import clsx from 'clsx';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 
+
+//do usuniecia
+import { ProductBox } from '../../common/ProductBox/ProductBox';
+
 const Component = ({ className, children }) => (
   <div className={clsx(className, styles.root)}>
     <Header />
     <h2>MainLayout</h2>{children}
+    <ProductBox image='/images/KAPUSTA-MLODA-POLSKA-SZT_[1610]_1200.jpg' title='Kapusta' price={10.00} ifQuantity={false}/>
     <Footer />
   </div>
 );
