@@ -1,51 +1,61 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
 @import "../../../styles/global.scss";
 
 .root {
   background-color: $color-light;
   // width: 300px;
   height: 200px;
-  border-radius: 10px ;
+  border-radius: 10px;
   margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   padding: 10px;
   display: flex;
 }
 
-.image {
-  overflow: hidden;
-  max-width: 400px;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 3;
-  border-radius: 10px;
-}
-
-.info {
-  color: $color-main;
-  font-weight: bolder;
-
-  .text {
-    color: $color-black;
-  }
-
-  .text > div {
-    font-weight: 800;
-  }
-
-  .price {
-    font-size: 20px;
-  }
-  .amount {
-    font-size: 12px;
-  }
-}
-
 .productBox {
+  .main {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .image {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    max-width: 400px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 3;
+    border-radius: 10px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: flex-start;
+    color: $color-main;
+    font-weight: bolder;
+
+    .text {
+      color: $color-black;
+    }
+
+    .text > div {
+      font-weight: 800;
+    }
+
+    .price {
+      font-size: 20px;
+    }
+    .amount {
+      font-size: 12px;
+    }
+  }
+
   .order {
     margin-top: 10px;
     width: 50%;
