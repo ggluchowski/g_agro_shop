@@ -17,7 +17,7 @@ app.use('/api', productsRoutes);
 
 /* API ERROR PAGES */
 app.use('/api', (req, res) => {
-  res.status(404).send({ post: 'Not found...' });
+  res.status(404).send({ products: 'Not found...' });
 });
 
 /* REACT WEBSITE */

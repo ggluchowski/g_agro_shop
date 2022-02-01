@@ -6,24 +6,12 @@ import clsx from 'clsx';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
+import { toPriceFormat } from '../../../utils/functions';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-const Component = ({ className, title, image, price, ifQuantity }) => {
-
-  function toPriceFormat(price) {
-    if (isNaN(price)) {
-      return '';
-    } else {
-      return price.toLocaleString('en', {
-        style: 'currency',
-        currency: 'PLN',
-        minimumFractionDigits: '2',
-        maxFractionDigits: '2',
-      });
-    }
-  }
+const Component = ({ className, id, title, image, price, ifQuantity }) => {
 
   return (
     <div className={clsx(className, styles.root, styles.productBox)}>
@@ -47,7 +35,11 @@ const Component = ({ className, title, image, price, ifQuantity }) => {
             </div>)
           }
           <div className={styles.order}>
-            <Link to='/product/:id' >Zamów</Link>
+            <Link to={{
+              pathname: `/products/${id}`,
+            }}
+            > Zamów
+            </Link>
           </div>
 
         </Col >
@@ -59,6 +51,7 @@ const Component = ({ className, title, image, price, ifQuantity }) => {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  id: PropTypes.string,
   title: PropTypes.string,
   image: PropTypes.string,
   price: PropTypes.number,

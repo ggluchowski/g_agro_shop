@@ -2,6 +2,8 @@ import Axios from 'axios';
 
 /* selectors */
 export const getAllProducts = ({ products }) => products.data;
+export const getIdProducts = ({ products, id }) => products.data.filter(item => item._id === id);
+export const getRequest = ({products}) => products.loading;
 
 /* action name creator */
 const reducerName = 'products';
@@ -24,6 +26,21 @@ export const fetchProductsFromDB = () => {
 
     Axios
       .get('http://localhost:8000/api/products')
+      .then(res => {
+        dispatch(fetchSuccess(res.data));
+      })
+      .catch(err => {
+        dispatch(fetchError(err.message || true));
+      });
+  };
+};
+
+export const fetchProductIDFromDB = (id) => {
+  return async (dispatch) => {
+    dispatch(fetchStarted());
+
+    await Axios
+      .get(`http://localhost:8000/api/products/${id}`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
       })

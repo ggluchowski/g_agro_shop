@@ -13,6 +13,7 @@ import './styles/global.scss';
 // komponenty
 import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Homepage } from './components/views/Homepage/Homepage';
+import { ProductPage } from './components/views/ProductPage/ProductPage';
 
 import { NotFound } from './components/views/NotFound/NotFound';
 
@@ -31,9 +32,7 @@ const App = () => (
           <MainLayout>
             <Switch>
               <Route exact path='/' component={Homepage} />
-
-
-
+              <Route exact path='/products/:id' component={ProductPage} />
 
               <Route path='*' component={NotFound} />
             </Switch>

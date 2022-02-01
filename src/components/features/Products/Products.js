@@ -36,6 +36,7 @@ class Component extends React.Component {
                     title={item.name}
                     price={item.price}
                     ifQuantity={item.ifQuantity}
+                    id={item._id}
                   />
                 </Col>
               );

@@ -2,9 +2,12 @@ export const initialState = {
   products: {
     data: [],
     loading: {
-      active: false,
+      active: true,
       error: false,
     },
+  },
+  basket: {
+    data: [],
   },
   orders: {
     data: [],
