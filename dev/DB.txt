@@ -67,3 +67,71 @@ db.products.insertMany([{
 }])
 
 db.posts.find().pretty()
+
+
+db.paymentMethods.insertMany([{
+name: 'Szybkie p?atno?ci online',
+},
+{
+name: 'Wp?ata na konto bankowe',
+},
+{
+name: 'P?atno?? przy odbiorze',
+}])
+
+db.paymentMethods.find().pretty()
+
+
+
+
+db.deliverys.insertMany([{
+name: 'Odbior osobisty',
+price: 0.00,
+},
+{
+name: 'Kurier',
+price: 15.00,
+},
+{
+name: 'Paczkomat',
+price: 12.00,
+}])
+
+db.deliverys.find().pretty()
+
+
+
+db.contacts.insertMany([{
+email: 'janmaly@gmail.com',
+companyName: '',
+firstName: 'Jan',
+lastName: 'Maly',
+city: 'Warszawa',
+postcode: '02489',
+streetAndHomeNumber: 'Misia Uszatka 5/12',
+phone: '658987142',
+},{
+email: 'mariamila@gmail.com',
+companyName: '',
+firstName: 'Maria',
+lastName: 'Mila',
+city: 'Warszawa',
+postcode: '02489',
+streetAndHomeNumber: 'Misia Uszatka 6/12',
+phone: '612987142',
+}])
+
+db.contacts.find().pretty()
+
+
+db.agreements.insertMany([{
+name: 'Akceptuj? warunki <span className={styles.statute}>regulaminu<span><span className={styles.asterisk}>*<span>',
+},
+{
+name: 'Wyra?am zgod? na przechowywanie i przetwarzanie moich danych osobowych przez firm? AGROSHOP <span className={styles.asterisk}>*<span>',
+},
+{
+name: 'Chc? otrzymywa? informacje o nowo?ciach i promocjach! Zapisz mnie do newslettera.',
+}])
+
+db.agreements.find().pretty()
