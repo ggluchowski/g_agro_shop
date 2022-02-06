@@ -1,6 +1,40 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
 @import "../../../styles/global.scss";
 
-// .root {
+.root {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
 
-// }
+.basket {
+
+  .summaryPrice {
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: $productTable-size;
+    margin-left: 66%;
+    width: 20%;
+    text-align: center;
+    padding: 0;
+    color: $color-red;
+  }
+
+  .summaryPriceText {
+  color: $color-black;
+  }
+
+  .choiceButtons{
+    display: flex;
+    justify-content: space-between;
+    // align-items: flex-end;
+
+    .fontLeft{
+      margin-right: 15px;
+    }
+    .fontRight{
+      margin-left: 15px;
+    }
+  }
+
+
+}
