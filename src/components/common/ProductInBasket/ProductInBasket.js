@@ -5,11 +5,19 @@ import styles from './ProductInBasket.module.scss';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { actionDeleteProduct, actionUpdateBasket } from '../../../redux/basketRedux';
+import { actionDeleteProduct, actionUpdateBasket, actionAddDescription } from '../../../redux/basketRedux';
 
-const Component = ({ className, id, name, quantity, price, updateProduct, deleteProduct }) => {
+const Component = ({ className, id, name, quantity, price, description, updateProduct, deleteProduct, updateDescription }) => {
 
   const [count, setCount] = useState(quantity);
+  // const [description, setDescription] = useState('');
+
+  function handleChangeTextarea (event) {
+    // event.preventDefault();
+    const text = event.target.value;
+    console.log(id, text);
+    updateDescription(id, text);
+  }
 
   function increase() {
     if (count >= 1 && count < 10)
@@ -69,6 +77,15 @@ const Component = ({ className, id, name, quantity, price, updateProduct, delete
         </div>
       </div>
 
+      <div className={styles.description}>
+        <textarea
+          rows={1}
+          defaultValue={description}
+          onChange={(event) => handleChangeTextarea(event)}
+          placeholder='Dodaj wymagania odnośnie produktu...'
+        ></textarea>
+      </div>
+
     </div>
   );
 };
@@ -86,6 +103,8 @@ Component.propTypes = {
   count: PropTypes.number,
   updateProduct: PropTypes.func,
   deleteProduct: PropTypes.func,
+  updateDescription: PropTypes.func,
+  // handleChangeTextarea: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -95,6 +114,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updateProduct: (id, newQuantity) => dispatch(actionUpdateBasket(id, newQuantity)),
   deleteProduct: (id) => dispatch(actionDeleteProduct(id)),
+  updateDescription: (id, description) => dispatch(actionAddDescription(id, description)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

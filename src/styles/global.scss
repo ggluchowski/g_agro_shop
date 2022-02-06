@@ -16,15 +16,39 @@ body {
   color: $color-dark;
 }
 
-// .container {
-//   max-width: 700px;
-//   margin: 0 auto;
-//   padding: 0 20px;
-// }
-
 .align{
   align-items: center;
+}
 
+.main {
+  background-color: $color-light;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  padding: 10px;
+}
+
+.headTable {
+  display: flex;
+  flex-direction: row;
+  font-size: $headTable-size;
+  text-align: center;
+  border-bottom: 1px solid $color-footer;
+
+  .productName {
+    width: 40%;
+  }
+  .quantity {
+    width: 15%;
+  }
+  .price {
+    width: 15%;
+  }
+  .sum {
+    width: 20%;
+  }
+  .delete {
+    width: 15%;
+  }
 }
 
 

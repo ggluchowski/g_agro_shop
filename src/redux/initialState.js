@@ -7,7 +7,15 @@ export const initialState = {
     },
   },
   basket: {
-    data: [],
+    data: [
+      {
+        id: '1',
+        name: 'Marchew',
+        price: 4.50,
+        quantity: 1,
+        sum: 4.50,
+      },
+    ],
   },
   orders: {
     data: [],

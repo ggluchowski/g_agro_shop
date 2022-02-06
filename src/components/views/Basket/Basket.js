@@ -49,6 +49,7 @@ class Component extends React.Component {
                 name={item.name}
                 quantity={parseInt(item.quantity)}
                 price={parseFloat(item.price)}
+                description={item.description}
               />)}
 
             <div className={clsx(styles.summaryPrice, styles.summaryPriceText)}>

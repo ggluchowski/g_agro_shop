@@ -15,7 +15,7 @@ const Component = ({ className, id, title, image, price, ifQuantity }) => {
 
   return (
     <div className={clsx(className, styles.root, styles.productBox)}>
-      <Row className={styles.main}>
+      <Row className={clsx(styles.main, styles.mainBox)}>
         <Col className={styles.image}>
           <img src={image} alt='Zdjecie warzywa/owocu' />
         </Col>

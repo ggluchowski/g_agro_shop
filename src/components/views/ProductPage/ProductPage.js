@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProductPage.module.scss';
+import { nanoid } from 'nanoid';
 
 import clsx from 'clsx';
 import { Container as ContainerBoot } from 'react-bootstrap';
@@ -42,8 +43,10 @@ class Component extends React.Component {
   sendToState = () => {
     const {addToBasket} = this.props;
     const {name, price, quantity} = this.state;
+    const sum = parseInt(quantity) * parseFloat(price);
+    const id = nanoid();
 
-    addToBasket(name, price, quantity);
+    addToBasket(id, name, price, quantity, sum);
   }
 
   render() {
@@ -125,7 +128,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchData: id => dispatch(fetchProductIDFromDB(id)),
-  addToBasket: (name, price, quantity) => dispatch(actionAddToBasket(name, price, quantity)),
+  addToBasket: (id, name, price, quantity, sum) => dispatch(actionAddToBasket(id, name, price, quantity, sum)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
