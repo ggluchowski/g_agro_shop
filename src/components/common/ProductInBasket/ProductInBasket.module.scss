@@ -1,0 +1,45 @@
+@import "../../../styles/settings.scss";
+@import "../../../styles/global.scss";
+
+.root {
+  border-bottom: 1px solid $color-dark;
+
+  &:hover {
+    background-color: $color-hover;
+  }
+}
+
+.productTable {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: $productTable-size;
+  border: none;
+}
+
+.ProductInBasket {
+  .delete {
+    color: $color-red;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+
+  .quantityChange {
+    display: flex;
+    flex-direction: row;
+    width: 15%;
+    justify-content: center;
+
+    .plus_minus {
+      padding: 0 10px;
+      font-weight: bolder;
+      cursor: pointer;
+      border: 1px solid $color-main;
+      background-color: $color-main;
+    }
+
+    .content {
+      padding: 0 20px;
+      border: 1px solid $color-main;
+    }
+  }
+}
