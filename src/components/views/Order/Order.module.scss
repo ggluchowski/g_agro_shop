@@ -1,6 +1,84 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
 @import "../../../styles/global.scss";
 
-// .root {
+.root {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
 
-// }
+.order {
+  h3 {
+    text-align: center;
+    font-weight: bolder;
+  }
+
+  .summaryCol {
+    border: 1px solid $color-dark;
+    margin: 10px 5px;
+  }
+
+  .formHead {
+    text-decoration: underline $color-main;
+    font-size: $headTable-size;
+  }
+
+  .phone {
+    margin-top: 3px;
+  }
+
+  .agreements {
+    margin-top: 20px;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .summary_tabHead {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    font-size: $productTable-size;
+    text-align: center;
+    font-weight: bolder;
+
+    .name {
+      width: 30%;
+    }
+    .quantity {
+      width: 10%;
+    }
+    .price {
+      width: 20%;
+    }
+    .description {
+      width: 40%;
+    }
+  }
+
+  .summaryPrice {
+    border-top: 2px solid $color-dark;
+    font-size: $productTable-size;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+
+    &_content {
+      margin: 5px 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &_sum {
+      font-size: $headTable-size;
+      font-weight: bolder;
+    }
+
+    &_price {
+      color: $color-red;
+    }
+  }
+}
