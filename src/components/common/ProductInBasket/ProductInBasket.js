@@ -5,6 +5,9 @@ import styles from './ProductInBasket.module.scss';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
+
+import utils from '../../../utils/functions';
+
 import { actionDeleteProduct, actionUpdateBasket, actionAddDescription } from '../../../redux/basketRedux';
 
 const Component = ({ className, id, name, quantity, price, description, updateProduct, deleteProduct, updateDescription }) => {
@@ -39,14 +42,6 @@ const Component = ({ className, id, name, quantity, price, description, updatePr
       updateProduct(id, count - 1);
   }
 
-  function sum(quantity, price) {
-    return parseInt(quantity) * parseFloat(price);
-  }
-
-  function pricePrint(price) {
-    return price.toFixed(2);
-  }
-
   return (
     <div className={clsx(className, styles.root, styles.ProductInBasket)}>
 
@@ -67,10 +62,10 @@ const Component = ({ className, id, name, quantity, price, description, updatePr
           >+</div>
         </div>
         <div className={styles.price}>
-          {pricePrint(price)}
+          {utils.pricePrint(price)}
         </div>
         <div className={styles.sum}>
-          {pricePrint(sum(count, price))}
+          {utils.pricePrint(utils.sum(count, price))}
         </div>
         <div onClick={() => deleteProduct(id)} className={styles.delete}>
           X
@@ -104,7 +99,7 @@ Component.propTypes = {
   updateProduct: PropTypes.func,
   deleteProduct: PropTypes.func,
   updateDescription: PropTypes.func,
-  // handleChangeTextarea: PropTypes.func,
+  description: PropTypes.string,
 };
 
 const mapStateToProps = state => ({

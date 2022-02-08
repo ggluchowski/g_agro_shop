@@ -10,3 +10,11 @@ exports.toPriceFormat = function (price) {
     });
   }
 };
+
+exports.sum = function (quantity, price) {
+  return parseInt(quantity) * parseFloat(price);
+};
+
+exports.pricePrint = function(price) {
+  return price.toFixed(2);
+};

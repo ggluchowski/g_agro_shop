@@ -4,10 +4,12 @@ import styles from './Button.module.scss';
 
 import clsx from 'clsx';
 
-const Component = ({ className, children, onClick }) => (
+const Component = ({ className, children, onClick, type }) => (
   <button
     className={clsx(className, styles.root)}
-    onClick={onClick}>
+    onClick={onClick}
+    type={type}>
+
     {children}
   </button>
 );
@@ -16,6 +18,7 @@ Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   onClick: PropTypes.func,
+  type: PropTypes.string,
 };
 
 export {

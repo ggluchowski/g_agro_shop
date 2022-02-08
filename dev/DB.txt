@@ -125,13 +125,21 @@ db.contacts.find().pretty()
 
 
 db.agreements.insertMany([{
-name: 'Akceptuj? warunki <span className={styles.statute}>regulaminu<span><span className={styles.asterisk}>*<span>',
+name: 'Akceptuj? warunki <a src="https://poradnikprzedsiebiorcy.pl/-regulamin-sklepu-internetowego-wzor-z-omowieniem" class="statute">regulaminu</a><span class="asterisk">*<span>',
+required: true,
 },
 {
-name: 'Wyra?am zgod? na przechowywanie i przetwarzanie moich danych osobowych przez firm? AGROSHOP <span className={styles.asterisk}>*<span>',
+name: 'Wyra?am zgod? na przechowywanie i przetwarzanie moich danych osobowych przez firm? AGROSHOP <span class="asterisk">*</span>',
+required: true,
 },
 {
 name: 'Chc? otrzymywa? informacje o nowo?ciach i promocjach! Zapisz mnie do newslettera.',
+required: false,
 }])
 
 db.agreements.find().pretty()
+
+db.orders.insert({
+paymentMethods: ObjectID("61ffe3148092e336e61d14d1"),
+delivery:
+agreement:
