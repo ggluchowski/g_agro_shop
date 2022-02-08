@@ -17,8 +17,33 @@ export const initialState = {
       },
     ],
   },
-  orders: {
+  paymentMethods:{
+    data: [
+
+    ],
+    loading: {
+      active: false,
+      error: false,
+    },
+  },
+  agreements:{
     data: [],
+    loading: {
+      active: false,
+      error: false,
+    },
+  },
+  deliverys:{
+    data: [],
+    loading: {
+      active: false,
+      error: false,
+    },
+  },
+  orders: {
+    orderedProducts: [],
+    contacts: [],
+    orders: [],
     loading: {
       active: false,
       error: false,
