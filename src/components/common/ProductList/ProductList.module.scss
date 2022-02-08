@@ -1,0 +1,31 @@
+@import '../../../styles/settings.scss';
+@import "../../../styles/global.scss";
+
+.root {
+  margin: 15px 0;
+  border-top: 1px solid $color-dark;
+  font-size: $productTable-size;
+  padding: 10px 0;
+}
+
+.productList {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+
+  .name{
+    width: 30%;
+  }
+  .quantity{
+    width: 10%;
+  }
+  .price{
+    width: 20%;
+    color: $color-red;
+  }
+  .description{
+    width: 40%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
