@@ -7,6 +7,7 @@ const productsRoutes = require('./routes/products.routes');
 const agreementsRoutes = require('./routes/agreements.routes');
 const deliverysRoutes = require('./routes/deliverys.routes');
 const paymentMethodsRoutes = require('./routes/paymentMethods.routes');
+const contactsRoutes = require('./routes/contacts.routes');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use('/api', productsRoutes);
 app.use('/api', agreementsRoutes);
 app.use('/api', deliverysRoutes);
 app.use('/api', paymentMethodsRoutes);
+app.use('/api', contactsRoutes);
 
 /* API ERROR PAGES */
 app.use('/api', (req, res) => {

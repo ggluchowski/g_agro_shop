@@ -42,18 +42,11 @@ export const initialState = {
   },
   orders: {
     orderedProducts: [],
-    contacts: [],
     orders: [],
     loading: {
       active: false,
       error: false,
     },
   },
-  user: {
-    data: [],
-    loading: {
-      active: false,
-      error: false,
-    },
-  },
+
 };

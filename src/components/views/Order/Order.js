@@ -4,6 +4,7 @@ import ReactHtmlParser from 'react-html-parser';
 import styles from './Order.module.scss';
 
 import clsx from 'clsx';
+import ObjectId from 'mongo-objectid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Container as ContainerBoot } from 'react-bootstrap';
@@ -24,6 +25,7 @@ import { getAllDeliverys, fetchDeliverysFromDB } from '../../../redux/deliverysR
 import { getAllAgreements, fetchAgreementsFromDB } from '../../../redux/agreementsRedux';
 
 import { getAll, sumAll } from '../../../redux/basketRedux';
+import { postContactToDB } from '../../../redux/contactsRedux';
 
 class Component extends React.Component {
   state = {
@@ -52,17 +54,44 @@ class Component extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
+    const { sendContacts } = this.props;
+
+    let contact = {};
+    let payment = '';
+    let delivery = '';
+    const agreements = [];
+    const id = new ObjectId();
+
     for (let i = 0; i < e.target.length; i++) {
       let item = e.currentTarget;
-      if (item[i].type === 'radio' && item[i].checked) console.log(item[i].defaultValue);
-      else if (item[i].type === 'checkbox' && item[i].checked) console.log(item[i].defaultValue);
-      else if (item[i].type === 'text') console.log(item[i].value);
-      else if (item[i].type === 'email') console.log(item[i].value);
-      // console.log(e.currentTarget[i]);
-      // console.log(item[i].type, item[i].name, item[i].value, item[i].label, item[i].checked );
+      if (item[i].type === 'radio' && item[i].checked && item[i].name === 'payment')
+        payment = item[i].id;
+      else if (item[i].type === 'radio' && item[i].checked && item[i].name === 'delivery')
+        delivery = item[i].id;
+      else if (item[i].type === 'checkbox' && item[i].checked && item[i].name === 'agreements')
+        agreements.push(item[i].id);
+      else if (item[i].name === 'email')
+        contact.email = item[i].value;
+      else if (item[i].name === 'companyName')
+        contact.companyName = item[i].value;
+      else if (item[i].name === 'firstName')
+        contact.firstName = item[i].value;
+      else if (item[i].name === 'lastName')
+        contact.lastName = item[i].value;
+      else if (item[i].name === 'city')
+        contact.city = item[i].value;
+      else if (item[i].name === 'postcode')
+        contact.postcode = item[i].value;
+      else if (item[i].name === 'streetAndHomeNumber')
+        contact.streetAndHomeNumber = item[i].value;
+      else if (item[i].name === 'phone')
+        contact.phone = item[i].value;
     }
+    contact._id = id.toString();
 
+    sendContacts(contact);
 
+    console.log(contact, payment, delivery, agreements);
     console.log('Kliknieto submit');
   }
 
@@ -96,7 +125,7 @@ class Component extends React.Component {
                     <div key={item._id} className="mb-2">
                       <Form.Check
                         type='radio'
-                        id={`radio-${item._id}`}
+                        id={item._id}
                         label={item.name}
                         name='payment'
                         defaultValue={item.name}
@@ -117,7 +146,7 @@ class Component extends React.Component {
                       <Form.Check
                         onChange={() => this.handleDeliveryChange(item.price)}
                         type='radio'
-                        id={`radio-${item._id}`}
+                        id={item._id}
                         label={item.name}
                         name='delivery'
                         defaultValue={item.name}
@@ -237,7 +266,7 @@ class Component extends React.Component {
               <div className={styles.summaryPrice}>
                 <div className={styles.summaryPrice_content}>
                   <div>Cena produktów:</div>
-                  <div className={styles.summaryPrice_price}>{ basketSum } zł</div>
+                  <div className={styles.summaryPrice_price}>{basketSum} zł</div>
                 </div>
 
                 <div className={styles.summaryPrice_content}>
@@ -276,6 +305,7 @@ Component.propTypes = {
   fetchPaymentMethods: PropTypes.func,
   fetchDeliverys: PropTypes.func,
   fetchAgreements: PropTypes.func,
+  sendContacts: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -290,6 +320,7 @@ const mapDispatchToProps = dispatch => ({
   fetchPaymentMethods: () => dispatch(fetchPaymentMethodsFromDB()),
   fetchDeliverys: () => dispatch(fetchDeliverysFromDB()),
   fetchAgreements: () => dispatch(fetchAgreementsFromDB()),
+  sendContacts: (data) => dispatch(postContactToDB(data)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
