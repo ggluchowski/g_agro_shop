@@ -8,6 +8,7 @@ const agreementsRoutes = require('./routes/agreements.routes');
 const deliverysRoutes = require('./routes/deliverys.routes');
 const paymentMethodsRoutes = require('./routes/paymentMethods.routes');
 const contactsRoutes = require('./routes/contacts.routes');
+const orderedProductsRoutes = require('./routes/orderedProducts.routes');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use('/api', agreementsRoutes);
 app.use('/api', deliverysRoutes);
 app.use('/api', paymentMethodsRoutes);
 app.use('/api', contactsRoutes);
+app.use('/api', orderedProductsRoutes);
 
 /* API ERROR PAGES */
 app.use('/api', (req, res) => {

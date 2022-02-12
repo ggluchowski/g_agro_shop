@@ -21,6 +21,7 @@ const ADD_TO_BASKET = createActionName('ADD_TO_BASKET');
 const UPDATE_BASKET = createActionName('UPDATE_BASKET');
 const DELETE_PRODUCT = createActionName('DELETE_PRODUCT');
 const ADD_DESCRIPTION = createActionName('ADD_DESCRIPTION');
+const CLEAR_BASKET = createActionName('CLEAR_BASKET');
 
 /* action creators */
 export const actionAddToBasket = (id, name, price, quantity, sum) => ({
@@ -56,6 +57,8 @@ export const actionAddDescription = (id, newDescription) => ({
   },
   type: ADD_DESCRIPTION,
 });
+
+export const actionClearBasket = payload => ({ payload, type: CLEAR_BASKET });
 
 
 /* thunk creators */
@@ -102,6 +105,11 @@ export const reducer = (statePart = [], action = {}) => {
       });
       return {
         ...statePart,
+      };
+
+    case CLEAR_BASKET:
+      return {
+        data: [],
       };
 
     default:

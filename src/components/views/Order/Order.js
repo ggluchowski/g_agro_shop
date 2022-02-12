@@ -24,8 +24,9 @@ import { getAllPaymentMethods, fetchPaymentMethodsFromDB } from '../../../redux/
 import { getAllDeliverys, fetchDeliverysFromDB } from '../../../redux/deliverysRedux';
 import { getAllAgreements, fetchAgreementsFromDB } from '../../../redux/agreementsRedux';
 
-import { getAll, sumAll } from '../../../redux/basketRedux';
+import { actionClearBasket, getAll, sumAll } from '../../../redux/basketRedux';
 import { postContactToDB } from '../../../redux/contactsRedux';
+import { postOrderedProductToDB } from '../../../redux/orderedProductsRedux';
 
 class Component extends React.Component {
   state = {
@@ -54,13 +55,14 @@ class Component extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const { sendContacts } = this.props;
+    const { sendContacts, sendBasket, getBasket, clearBasket } = this.props;
 
     let contact = {};
     let payment = '';
     let delivery = '';
     const agreements = [];
-    const id = new ObjectId();
+    const id = new ObjectId(); //ID dla contacts
+    const orderID = new ObjectId(); //orderID - dla calego zamowienia
 
     for (let i = 0; i < e.target.length; i++) {
       let item = e.currentTarget;
@@ -87,11 +89,27 @@ class Component extends React.Component {
       else if (item[i].name === 'phone')
         contact.phone = item[i].value;
     }
+
+    for (const item of getBasket) {
+      item.orderID = orderID.toString();
+    }
+
     contact._id = id.toString();
 
-    sendContacts(contact);
+    if (getBasket.length === 0) alert('Koszyk jest pusty');
+    else {
+      sendBasket(getBasket);
+      sendContacts(contact);
+      e.target.reset();
+      clearBasket();
+      this.setState({delivery: 0});
+    }
 
-    console.log(contact, payment, delivery, agreements);
+
+
+
+    console.log(getBasket);
+    // console.log(payment, delivery, agreements);
     console.log('Kliknieto submit');
   }
 
@@ -255,7 +273,7 @@ class Component extends React.Component {
 
               {getBasket.map(item =>
                 <ProductList
-                  key={item.id}
+                  key={item._id}
                   name={item.name}
                   price={item.price}
                   quantity={parseInt(item.quantity)}
@@ -306,6 +324,7 @@ Component.propTypes = {
   fetchDeliverys: PropTypes.func,
   fetchAgreements: PropTypes.func,
   sendContacts: PropTypes.func,
+  sendBasket: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -321,6 +340,8 @@ const mapDispatchToProps = dispatch => ({
   fetchDeliverys: () => dispatch(fetchDeliverysFromDB()),
   fetchAgreements: () => dispatch(fetchAgreementsFromDB()),
   sendContacts: (data) => dispatch(postContactToDB(data)),
+  sendBasket: (productTab) => dispatch(postOrderedProductToDB(productTab)),
+  clearBasket: () => dispatch(actionClearBasket()),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
