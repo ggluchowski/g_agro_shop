@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProductPage.module.scss';
-import { nanoid } from 'nanoid';
+import ObjectId from 'mongo-objectid';
 
 import clsx from 'clsx';
 import { Container as ContainerBoot } from 'react-bootstrap';
@@ -44,9 +44,10 @@ class Component extends React.Component {
     const {addToBasket} = this.props;
     const {name, price, quantity} = this.state;
     const sum = parseInt(quantity) * parseFloat(price);
-    const id = nanoid();
+    const id = new ObjectId();
+    const _id = id.toString();
 
-    addToBasket(id, name, price, quantity, sum);
+    addToBasket(_id, name, price, quantity, sum);
   }
 
   render() {

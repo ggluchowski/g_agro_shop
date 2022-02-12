@@ -8,19 +8,17 @@ export const initialState = {
   },
   basket: {
     data: [
-      {
-        id: '1',
-        name: 'Marchew',
-        price: 4.50,
-        quantity: 1,
-        sum: 4.50,
-      },
+      // {
+      //   _id: '1',
+      //   name: 'Marchew',
+      //   price: 4.50,
+      //   quantity: 1,
+      //   sum: 4.50,
+      // },
     ],
   },
   paymentMethods:{
-    data: [
-
-    ],
+    data: [],
     loading: {
       active: false,
       error: false,
@@ -35,14 +33,6 @@ export const initialState = {
   },
   deliverys:{
     data: [],
-    loading: {
-      active: false,
-      error: false,
-    },
-  },
-  orders: {
-    orderedProducts: [],
-    orders: [],
     loading: {
       active: false,
       error: false,
