@@ -1,5 +1,3 @@
-// import Axios from 'axios';
-
 /* selectors */
 export const getAll = ({ basket }) => basket.data;
 export const sumAll = ({ basket }) => {

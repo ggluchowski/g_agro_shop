@@ -11,7 +11,7 @@ import Col from 'react-bootstrap/Col';
 
 import { Button } from '../../common/Button/Button';
 
-const Component = ({ className, children }) => (
+const Component = ({ className }) => (
   <div className={clsx(className, styles.root, styles.topBar)}>
     <Container>
       <Row className={styles.align}>
@@ -60,6 +60,5 @@ Component.propTypes = {
 
 export {
   Component as TopBar,
-  // Container as TopBar,
   Component as TopBarComponent,
 };

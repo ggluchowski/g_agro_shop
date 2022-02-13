@@ -30,6 +30,5 @@ Component.propTypes = {
 
 export {
   Component as Hero,
-  // Container as Hero,
   Component as HeroComponent,
 };

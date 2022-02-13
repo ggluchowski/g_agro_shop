@@ -22,6 +22,5 @@ Component.propTypes = {
 
 export {
   Component as NotFound,
-  // Container as NotFound,
   Component as NotFoundComponent,
 };

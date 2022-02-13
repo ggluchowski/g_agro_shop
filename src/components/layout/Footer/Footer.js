@@ -96,6 +96,5 @@ Component.propTypes = {
 
 export {
   Component as Footer,
-  // Container as Footer,
   Component as FooterComponent,
 };

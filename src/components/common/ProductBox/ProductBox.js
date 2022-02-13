@@ -8,9 +8,6 @@ import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 import { toPriceFormat } from '../../../utils/functions';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 const Component = ({ className, id, title, image, price, ifQuantity }) => {
 
   return (
@@ -58,18 +55,7 @@ Component.propTypes = {
   ifQuantity: PropTypes.bool,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as ProductBox,
-  // Container as ProductBox,
   Component as ProductBoxComponent,
 };

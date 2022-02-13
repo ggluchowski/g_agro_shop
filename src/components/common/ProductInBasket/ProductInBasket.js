@@ -13,10 +13,8 @@ import { actionDeleteProduct, actionUpdateBasket, actionAddDescription } from '.
 const Component = ({ className, id, name, quantity, price, description, updateProduct, deleteProduct, updateDescription }) => {
 
   const [count, setCount] = useState(quantity);
-  // const [description, setDescription] = useState('');
 
   function handleChangeTextarea (event) {
-    // event.preventDefault();
     const text = event.target.value;
     console.log(id, text);
     updateDescription(id, text);
@@ -115,7 +113,6 @@ const mapDispatchToProps = dispatch => ({
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  // Component as ProductInBasket,
   Container as ProductInBasket,
   Component as ProductInBasketComponent,
 };

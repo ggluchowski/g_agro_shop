@@ -63,6 +63,5 @@ Component.propTypes = {
 
 export {
   Component as MenuBar,
-  // Container as MenuBar,
   Component as MenuBarComponent,
 };

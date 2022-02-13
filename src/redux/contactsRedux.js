@@ -1,7 +1,6 @@
 import Axios from 'axios';
 
 /* selectors */
-// export const getAllAgreements = ({ agreements }) => agreements.data;
 
 /* action name creator */
 const reducerName = 'contacts';

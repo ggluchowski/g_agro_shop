@@ -1,4 +1,3 @@
-// const { ObjectId } = require('mongoose');
 const mongoose = require('mongoose');
 
 const contactSchema = new mongoose.Schema({

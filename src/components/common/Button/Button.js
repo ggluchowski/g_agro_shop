@@ -23,6 +23,5 @@ Component.propTypes = {
 
 export {
   Component as Button,
-  // Container as Button,
   Component as ButtonComponent,
 };

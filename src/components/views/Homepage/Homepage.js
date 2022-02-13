@@ -6,9 +6,6 @@ import clsx from 'clsx';
 
 import { Products } from '../../features/Products/Products';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 const Component = ({ className }) => (
   <div className={clsx(className, styles.root)}>
     <Products />
@@ -20,18 +17,7 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as Homepage,
-  // Container as Homepage,
   Component as HomepageComponent,
 };
