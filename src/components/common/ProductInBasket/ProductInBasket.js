@@ -16,7 +16,6 @@ const Component = ({ className, id, name, quantity, price, description, updatePr
 
   function handleChangeTextarea (event) {
     const text = event.target.value;
-    console.log(id, text);
     updateDescription(id, text);
   }
 

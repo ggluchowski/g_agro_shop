@@ -2,23 +2,37 @@ const express = require('express');
 const router = express.Router();
 
 const OrderedProduct = require('../models/orderedProduct.model');
+const helpFunctions = require('../functions/functions');
 
 router.post('/orderedProducts', async (req, res) => {
   try {
-    const tab = req.body;
+    let tab = req.body;
 
-    for (const item of tab) {
-      const newOrder = new OrderedProduct({});
-      newOrder._id = item.id;
-      newOrder.orderID = item.orderID;
-      newOrder.name = item.name;
-      newOrder.quantity = item.quantity;
-      newOrder.price = item.price;
-      newOrder.description = item.description;
-      newOrder.sum = item.sum;
-      await newOrder.save();
+    for (let item of tab) {
+      const descriptionEscape = helpFunctions.escape(item.description);
+
+      if (item.id && item.orderID && item.name && item.quantity && item.sum && item.price) {
+        if (item.quantity > 0 && item.quantity <= 10) {
+
+          const newOrder = new OrderedProduct({});
+          item.description = descriptionEscape;
+          newOrder._id = item.id;
+          newOrder.orderID = item.orderID;
+          newOrder.name = item.name;
+          newOrder.quantity = item.quantity;
+          newOrder.price = item.price;
+          newOrder.description = item.description;
+          newOrder.sum = item.sum;
+          await newOrder.save();
+        } else {
+          throw new Error('Wrong quantity');
+        }
+      } else {
+        throw new Error('Wrong data!');
+      }
     }
-    res.json({message: 'Order added to DB'});
+
+    res.json({ message: 'Order added to DB' });
 
   }
   catch (err) {
