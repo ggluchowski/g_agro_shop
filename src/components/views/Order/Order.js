@@ -142,7 +142,7 @@ class Component extends React.Component {
             </div>
             <h3>Podsumowanie zakupów</h3>
             {/* kolumna lewa */}
-            <Col className={styles.summaryCol}>
+            <Col className={clsx('col-12', 'col-md-6', styles.summaryCol)}>
 
               <Form onSubmit={(e) => this.handleSubmit(e)}>
                 <div className={styles.formHead}>
@@ -203,48 +203,53 @@ class Component extends React.Component {
                   </Form.Group>
                 </Row>
 
-                <Row>
-                  <Form.Group as={Col} controlId="formGridFirstName">
+                <Row >
+                  <Form.Group as={Col} className='col-12 col-sm-6' controlId="formGridFirstName">
                     <Form.Label>Imię<span className={styles.asterisk}>*</span></Form.Label>
                     <Form.Control placeholder="Podaj imię" name="firstName" required />
                   </Form.Group>
 
-                  <Form.Group as={Col} controlId="formGridLastName">
+                  <Form.Group as={Col}
+                    className='col-12 col-sm-6'
+                    controlId="formGridLastName">
                     <Form.Label>Nazwisko<span className={styles.asterisk}>*</span></Form.Label>
                     <Form.Control placeholder="Podaj nazwisko" name="lastName" required />
                   </Form.Group>
                 </Row>
 
                 <Row>
-                  <Form.Group as={Col} controlId="formGridCity">
+                  <Form.Group as={Col}
+                    className='col-12 col-sm-6'
+                    controlId="formGridCity">
                     <Form.Label>Miasto<span className={styles.asterisk}>*</span></Form.Label>
                     <Form.Control placeholder="Podaj miasto" name="city" required />
                   </Form.Group>
 
-                  <Form.Group as={Col} controlId="formGridPostcode">
+                  <Form.Group as={Col}
+                    className='col-12 col-sm-6'
+                    controlId="formGridPostcode">
                     <Form.Label>Kod pocztowy<span className={styles.asterisk}>*</span></Form.Label>
                     <Form.Control placeholder="00-000" name="postcode" required />
                   </Form.Group>
                 </Row>
 
                 <Row>
-                  <Form.Group as={Col} controlId="formGridStreet">
+                  <Form.Group as={Col}
+                    className='col-12 col-sm-6'
+                    controlId="formGridStreet">
                     <Form.Label>Ulica, nr domu/nr lokalu<span className={styles.asterisk}>*</span></Form.Label>
                     <Form.Control placeholder="Podaj ulicę, nr bud/nr lok" name="streetAndHomeNumber" required />
                   </Form.Group>
 
-                  <Form.Group as={Col} controlId="formGridPhone" className={styles.phone}>
+                  <Form.Group as={Col}
+                    controlId="formGridPhone" className={clsx('col-12 col-sm-6', styles.phone)}>
                     <Form.Label>Telefon</Form.Label>
                     <Form.Control placeholder="Podaj numer telefonu" name="phone" />
                   </Form.Group>
                 </Row>
 
                 <div className={styles.agreements}>
-                  <Form.Group
-                  // required
-                  // feedback="You must agree before submitting."
-                  // feedbackType="invalid"
-                  >
+                  <Form.Group>
                     {getAgreements.map((item) => (
                       <div key={item._id} className="mb-2">
                         <Form.Check
@@ -270,7 +275,7 @@ class Component extends React.Component {
             </Col>
 
             {/* kolumna prawa */}
-            <Col className={styles.summaryCol}>
+            <Col className={clsx('col-12', 'col-md-6', styles.summaryCol)}>
               <div className={styles.formHead}>
                 Lista zamawianych produktów
               </div>
