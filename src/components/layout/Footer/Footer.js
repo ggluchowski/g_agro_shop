@@ -10,13 +10,13 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const Component = ({ className, children }) => (
+const Component = ({ className }) => (
   <div className={clsx(className, styles.root)}>
     <footer>
       <div className={styles.footerTop}>
         <Container>
           <Row>
-            <Col>
+            <Col className='col-6 col-sm-3'>
               <div className={styles.title}>informacje</div>
               <div className={styles.footerLinks}>
                 <div><Link to='/'>O nas</Link></div>
@@ -24,7 +24,7 @@ const Component = ({ className, children }) => (
                 <div><Link to='/'>Wsparcie online</Link></div>
               </div>
             </Col>
-            <Col>
+            <Col className='col-6 col-sm-3'>
               <div className={styles.title}>moje konto</div>
               <div className={styles.footerLinks}>
                 <div><Link to='/'>Login</Link></div>
@@ -32,7 +32,7 @@ const Component = ({ className, children }) => (
                 <div><Link to='/'>Lista życzeń</Link></div>
               </div>
             </Col>
-            <Col>
+            <Col className='col-6 col-sm-3'>
               <div className={styles.title}>zamówienia</div>
               <div className={styles.footerLinks}>
                 <div><Link to='/'>Opcje zapłaty</Link></div>
@@ -45,7 +45,7 @@ const Component = ({ className, children }) => (
                 />
               </div>
             </Col>
-            <Col>
+            <Col className='col-6 col-sm-3'>
               <div className={styles.title}>social media</div>
               <div className={styles.footerLinks}>
                 <div >
