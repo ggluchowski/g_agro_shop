@@ -4,10 +4,13 @@ import styles from './ProductPage.module.scss';
 import ObjectId from 'mongo-objectid';
 
 import clsx from 'clsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Container as ContainerBoot } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Alert from 'react-bootstrap/Alert';
+import { Link } from 'react-router-dom';
 
 import { toPriceFormat } from '../../../utils/functions';
 import { Button } from '../../common/Button/Button';
@@ -41,8 +44,8 @@ class Component extends React.Component {
   }
 
   sendToState = () => {
-    const {addToBasket} = this.props;
-    const {name, price, quantity} = this.state;
+    const { addToBasket } = this.props;
+    const { name, price, quantity } = this.state;
     const sum = parseInt(quantity) * parseFloat(price);
     const id = new ObjectId();
     const _id = id.toString();
@@ -69,6 +72,18 @@ class Component extends React.Component {
       <div className={clsx(className, styles.root, styles.productPage)}>
         <ContainerBoot >
           <Row className={styles.main}>
+
+            <div className={styles.buttonProduct}>
+              <Link to='/'>
+                <Button>
+                  <FontAwesomeIcon
+                    className={styles.fontLeft}
+                    icon={faChevronLeft} />
+                  Powrót
+                </Button>
+              </Link>
+            </div>
+
             <h2>{product.name}</h2>
             <h4>Cena:
               {product.ifQuantity ?
@@ -101,7 +116,17 @@ class Component extends React.Component {
 
             <p className={styles.description}>{product.description}</p>
             <div className={styles.galery}>
-              {product.images.map((item, index) => <img key={index} src={item} alt={product.name} />)}
+              {product.images.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className={styles.productImage}>
+                    <img
+                      src={item}
+                      alt={product.name} />
+                  </div>
+                );
+              })}
             </div>
 
 
