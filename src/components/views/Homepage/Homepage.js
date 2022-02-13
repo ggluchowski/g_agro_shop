@@ -9,10 +9,9 @@ import { Products } from '../../features/Products/Products';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-const Component = ({ className, children }) => (
+const Component = ({ className }) => (
   <div className={clsx(className, styles.root)}>
     <Products />
-    {children}
   </div>
 );
 

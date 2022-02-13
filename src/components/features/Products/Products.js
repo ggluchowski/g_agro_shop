@@ -30,7 +30,7 @@ class Component extends React.Component {
           <Row md={2}>
             {getDataProducts.map(item => {
               return (
-                <Col key={item._id}>
+                <Col className='col-12' key={item._id}>
                   <ProductBox
                     image={item.images[0]}
                     title={item.name}
