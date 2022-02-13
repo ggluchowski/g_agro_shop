@@ -12,7 +12,7 @@ import Col from 'react-bootstrap/Col';
 import { Button } from '../../common/Button/Button';
 
 const Component = ({ className, children }) => (
-  <div className={clsx(className, styles.root)}>
+  <div className={clsx(className, styles.root, styles.topBar)}>
     <Container>
       <Row className={styles.align}>
         <Col md={3}>

@@ -6,8 +6,8 @@ import clsx from 'clsx';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
-const Component = ({ className, children, quote, author }) => (
-  <div className={clsx(className, styles.root)}>
+const Component = ({ className, quote, author }) => (
+  <div className={clsx(className, styles.root, styles.hero)}>
     <Container>
       <Row>
         <blockquote className={styles.quote}>

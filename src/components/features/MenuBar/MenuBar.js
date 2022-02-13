@@ -11,7 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const Component = ({ className, children }) => (
-  <div className={clsx(className, styles.root)}>
+  <div className={clsx(className, styles.root, styles.menuBar)}>
     <Container>
       <Row>
         <nav className={styles.navMenuContainer}>
@@ -19,35 +19,35 @@ const Component = ({ className, children }) => (
             <NavLink to='/' activeClassName='active'>
               <FontAwesomeIcon
                 icon={faHome} />
-              <div>Home</div>
+              <div className={styles.text}>Home</div>
             </NavLink>
           </Col>
           <Col>
             <NavLink to='/about'>
               <FontAwesomeIcon
                 icon={faAddressCard} />
-              <div>O nas</div>
+              <div className={styles.text}>O nas</div>
             </NavLink>
           </Col>
           <Col>
             <NavLink to='/contact'>
               <FontAwesomeIcon
                 icon={faPhoneVolume} />
-              <div>Kontakt</div>
+              <div className={styles.text}>Kontakt</div>
             </NavLink>
           </Col>
           <Col>
             <NavLink to='/order'>
               <FontAwesomeIcon
                 icon={faMoneyCheck} />
-              <div>Zamówienie</div>
+              <div className={styles.text}>Zamówienie</div>
             </NavLink>
           </Col>
           <Col>
             <NavLink to='/cart'>
               <FontAwesomeIcon
                 icon={faShoppingCart} />
-              <div>Koszyk</div>
+              <div className={styles.text}>Koszyk</div>
             </NavLink>
           </Col>
         </nav>

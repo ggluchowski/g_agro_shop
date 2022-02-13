@@ -1,28 +1,37 @@
-@import '../../../styles/settings.scss';
-@import '../../../styles/global.scss';
+@import "../../../styles/settings.scss";
+@import "../../../styles/global.scss";
 
 .root {
   display: flex;
 }
 
-nav a {
-  color: $color-light;
-  font-size: 1.2em;
-  font-weight: 900;
-  text-decoration: none;
-  margin: 30px 30px;
-  display:flex;
-  flex-direction: column;
+.menuBar {
+  nav a {
+    color: $color-light;
+    font-size: 1.2em;
+    font-weight: 900;
+    text-decoration: none;
+    margin: 30px 30px;
+    display: flex;
+    flex-direction: column;
 
+    &:hover {
+      color: $color-hover;
+      cursor: pointer;
+    }
+  }
 
-  &:hover {
-    color: $color-hover;
-    cursor: pointer;
+  .navMenuContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 }
 
-.navMenuContainer{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+@media screen and (max-width: 768px) {
+  .menuBar{
+    .text{
+      display: none;
+    }
+  }
 }

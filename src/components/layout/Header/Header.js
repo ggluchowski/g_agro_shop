@@ -7,7 +7,7 @@ import { TopBar } from '../../features/TopBar/TopBar';
 import { MenuBar } from '../../features/MenuBar/MenuBar';
 import { Hero } from '../../features/Hero/Hero';
 
-const Component = ({ className, children }) => (
+const Component = ({ className }) => (
   <header className={clsx(className, styles.root)}>
     <TopBar />
     <MenuBar />
