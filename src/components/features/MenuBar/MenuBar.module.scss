@@ -19,6 +19,30 @@
       color: $color-hover;
       cursor: pointer;
     }
+
+  .cartIcon{
+    position: relative;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .productCounter {
+    position: absolute;
+
+    background-color: $color-danger;
+    border-radius: 50% 50%;
+    z-index: 100;
+    width: 20px;
+    height: 20px;
+    top: 30%;
+    left: 50%;
+
+    .text {
+      line-height: 20px;
+      text-align: center;
+    }
+  }
+
   }
 
   .navMenuContainer {

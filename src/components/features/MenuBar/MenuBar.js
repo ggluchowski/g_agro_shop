@@ -6,13 +6,17 @@ import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoneyCheck, faAddressCard, faHome, faPhoneVolume, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
+import { Container as ContainerBoot } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const Component = ({ className }) => (
+import { connect } from 'react-redux';
+
+import { countProduct } from '../../../redux/basketRedux';
+
+const Component = ({ className, count }) => (
   <div className={clsx(className, styles.root, styles.menuBar)}>
-    <Container>
+    <ContainerBoot>
       <Row>
         <nav className={styles.navMenuContainer}>
           <Col>
@@ -45,22 +49,38 @@ const Component = ({ className }) => (
           </Col>
           <Col>
             <NavLink to='/cart'>
-              <FontAwesomeIcon
-                icon={faShoppingCart} />
+              <div className={styles.cartIcon}>
+                <FontAwesomeIcon
+                  icon={faShoppingCart} />
+                {
+                  count >= 1 &&
+                  <div className={styles.productCounter}>
+                    <div className={styles.text}>{count}
+                    </div>
+                  </div>
+                }
+              </div>
+
               <div className={styles.text}>Koszyk</div>
             </NavLink>
           </Col>
         </nav>
       </Row>
-    </Container>
+    </ContainerBoot>
   </div >
 );
 
+const mapStateToProps = state => ({
+  count: countProduct(state),
+});
+
 Component.propTypes = {
   className: PropTypes.string,
+  count: PropTypes.number,
 };
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as MenuBar,
+  Container as MenuBar,
   Component as MenuBarComponent,
 };

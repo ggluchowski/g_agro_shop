@@ -9,6 +9,10 @@ export const sumAll = ({ basket }) => {
   }
   return sum.toFixed(2);
 };
+export const countProduct = ({ basket }) => {
+  const count = basket.data.length;
+  return count;
+};
 
 /* action name creator */
 const reducerName = 'basket';
