@@ -54,7 +54,6 @@ const Component = ({ className }) => (
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
 };
 

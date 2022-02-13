@@ -49,7 +49,6 @@ class Component extends React.Component {
 }
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
   fetchData: PropTypes.func,
   getDataProducts: PropTypes.array,

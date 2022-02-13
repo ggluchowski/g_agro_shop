@@ -46,7 +46,6 @@ const Component = ({ className, id, title, image, price, ifQuantity }) => {
 };
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
   id: PropTypes.string,
   title: PropTypes.string,

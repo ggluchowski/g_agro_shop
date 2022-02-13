@@ -84,7 +84,6 @@ const Component = ({ className, id, name, quantity, price, description, updatePr
 };
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,

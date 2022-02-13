@@ -22,7 +22,6 @@ const Component = ({ className, quote, author }) => (
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
   quote: PropTypes.string,
   author: PropTypes.string,

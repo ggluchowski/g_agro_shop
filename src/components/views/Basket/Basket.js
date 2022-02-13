@@ -87,7 +87,6 @@ class Component extends React.Component {
 }
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
   getProducts: PropTypes.array,
   getSum: PropTypes.string,
