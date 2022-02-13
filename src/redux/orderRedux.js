@@ -3,7 +3,7 @@ import Axios from 'axios';
 /* selectors */
 
 /* action name creator */
-const reducerName = 'orderedProducts';
+const reducerName = 'order';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
@@ -17,14 +17,14 @@ export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
 
 /* thunk creators */
-export const postOrderedProductToDB = (productTab) => {
+export const postOrderToDB = (order) => {
   return (dispatch) => {
     dispatch(fetchStarted());
 
     Axios
-      .post('http://localhost:8000/api/orderedProducts', productTab)
+      .post('http://localhost:8000/api/order', order)
       .then(res => {
-        dispatch(fetchSuccess(productTab));
+        dispatch(fetchSuccess(order));
       })
       .catch(err => {
         dispatch(fetchError(err.message || true));
@@ -46,7 +46,7 @@ export const reducer = (statePart = [], action = {}) => {
 
     case FETCH_SUCCESS:
       return {
-
+        ...statePart,
         loading: {
           active: false,
           error: false,

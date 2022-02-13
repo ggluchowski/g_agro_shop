@@ -9,7 +9,8 @@ import { reducer as paymentMethodsReducer } from './paymentMethodsRedux';
 import { reducer as agreementsReducer } from './agreementsRedux';
 import { reducer as deliverysReducer } from './deliverysRedux';
 import { reducer as contactsReducer } from './contactsRedux';
-import { reducer as orderedProductsReducer } from './contactsRedux';
+import { reducer as orderedProductsReducer } from './orderedProductsRedux';
+import { reducer as orderReducer } from './orderRedux';
 
 
 // define reducers
@@ -21,6 +22,7 @@ const reducers = {
   deliverys: deliverysReducer,
   contacts: contactsReducer,
   orderedProducts: orderedProductsReducer,
+  order: orderReducer,
 };
 
 // add blank reducers for initial state properties without reducers

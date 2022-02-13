@@ -27,6 +27,7 @@ import { getAllAgreements, fetchAgreementsFromDB } from '../../../redux/agreemen
 import { actionClearBasket, getAll, sumAll } from '../../../redux/basketRedux';
 import { postContactToDB } from '../../../redux/contactsRedux';
 import { postOrderedProductToDB } from '../../../redux/orderedProductsRedux';
+import { postOrderToDB } from '../../../redux/orderRedux';
 
 class Component extends React.Component {
   state = {
@@ -55,11 +56,14 @@ class Component extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const { sendContacts, sendBasket, getBasket, clearBasket } = this.props;
+    const { sendContacts, sendBasket, getBasket, clearBasket, sendOrder } = this.props;
 
     let contact = {};
+    let order = {};
     let payment = '';
     let delivery = '';
+    let sum = 0;
+    const orderedProduct = [];
     const agreements = [];
     const id = new ObjectId(); //ID dla contacts
     const orderID = new ObjectId(); //orderID - dla calego zamowienia
@@ -92,25 +96,32 @@ class Component extends React.Component {
 
     for (const item of getBasket) {
       item.orderID = orderID.toString();
+      sum += item.sum;
+      orderedProduct.push(item.id);
     }
+    sum = sum + this.state.delivery;
 
     contact._id = id.toString();
+
+    order._id = orderID.toString();
+    order.payment = payment;
+    order.delivery = delivery;
+    order.agreements = agreements;
+    order.contactID = contact._id;
+    order.orderedProduct = orderedProduct;
+    order.sum = sum;
+
 
     if (getBasket.length === 0) alert('Koszyk jest pusty');
     else {
       sendBasket(getBasket);
       sendContacts(contact);
+      sendOrder(order);
       e.target.reset();
       clearBasket();
-      this.setState({delivery: 0});
+      this.setState({ delivery: 0 });
     }
 
-
-
-
-    console.log(getBasket);
-    // console.log(payment, delivery, agreements);
-    console.log('Kliknieto submit');
   }
 
   render() {
@@ -247,7 +258,7 @@ class Component extends React.Component {
                     ))}
                   </Form.Group>
                 </div>
-
+                <div><span className={styles.asterisk}>*</span> - pola obowiązkowe do wypełnienia </div>
                 <div className={styles.button}>
                   <Button type="submit">
                     Zamów i zapłać
@@ -271,15 +282,17 @@ class Component extends React.Component {
                 <div className={styles.description}>Opis</div>
               </div>
 
-              {getBasket.map(item =>
-                <ProductList
-                  key={item._id}
-                  name={item.name}
-                  price={item.price}
-                  quantity={parseInt(item.quantity)}
-                  sum={item.sum}
-                  description={item.description}
-                />
+              {getBasket.map((item, index) =>
+                <div key={index}>
+                  <ProductList
+                    name={item.name}
+                    price={item.price}
+                    quantity={parseInt(item.quantity)}
+                    sum={item.sum}
+                    description={item.description}
+                  />
+                </div>
+
               )}
               <div className={styles.summaryPrice}>
                 <div className={styles.summaryPrice_content}>
@@ -325,6 +338,8 @@ Component.propTypes = {
   fetchAgreements: PropTypes.func,
   sendContacts: PropTypes.func,
   sendBasket: PropTypes.func,
+  clearBasket: PropTypes.func,
+  sendOrder: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -341,6 +356,7 @@ const mapDispatchToProps = dispatch => ({
   fetchAgreements: () => dispatch(fetchAgreementsFromDB()),
   sendContacts: (data) => dispatch(postContactToDB(data)),
   sendBasket: (productTab) => dispatch(postOrderedProductToDB(productTab)),
+  sendOrder: (order) => dispatch(postOrderToDB(order)),
   clearBasket: () => dispatch(actionClearBasket()),
 });
 
