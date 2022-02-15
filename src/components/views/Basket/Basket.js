@@ -45,7 +45,7 @@ class Component extends React.Component {
             {getProducts.map((item, index) =>
               <ProductInBasket
                 key={index}
-                id={item.id}
+                _id={item._id}
                 name={item.name}
                 quantity={parseInt(item.quantity)}
                 price={parseFloat(item.price)}

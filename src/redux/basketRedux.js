@@ -24,11 +24,13 @@ const UPDATE_BASKET = createActionName('UPDATE_BASKET');
 const DELETE_PRODUCT = createActionName('DELETE_PRODUCT');
 const ADD_DESCRIPTION = createActionName('ADD_DESCRIPTION');
 const CLEAR_BASKET = createActionName('CLEAR_BASKET');
+const GET_BASKET = createActionName('GET_BASKET');
+// const BASKET_TO_LOCAL = createActionName('BASKET_TO_LOCAL');
 
 /* action creators */
 export const actionAddToBasket = (id, name, price, quantity, sum) => ({
   payload: {
-    id: id,
+    _id: id,
     name: name,
     price: price,
     quantity: quantity,
@@ -39,7 +41,7 @@ export const actionAddToBasket = (id, name, price, quantity, sum) => ({
 
 export const actionUpdateBasket = (id, newQuantity) => ({
   payload: {
-    id: id,
+    _id: id,
     quantity: newQuantity,
   },
   type: UPDATE_BASKET,
@@ -47,14 +49,14 @@ export const actionUpdateBasket = (id, newQuantity) => ({
 
 export const actionDeleteProduct = (id) => ({
   payload: {
-    id: id,
+    _id: id,
   },
   type: DELETE_PRODUCT,
 });
 
 export const actionAddDescription = (id, newDescription) => ({
   payload: {
-    id: id,
+    _id: id,
     description: newDescription,
   },
   type: ADD_DESCRIPTION,
@@ -62,8 +64,83 @@ export const actionAddDescription = (id, newDescription) => ({
 
 export const actionClearBasket = payload => ({ payload, type: CLEAR_BASKET });
 
+export const actionGetBasket = payload => ({ payload, type: GET_BASKET });
 
 /* thunk creators */
+
+export const postProductToLocalStorage = (product) => {
+  return async (dispatch) => {
+    try {
+      const basket = JSON.parse(localStorage.getItem('basket')) || [];
+      basket.push(product);
+      localStorage.setItem('basket', JSON.stringify(basket));
+
+      dispatch(actionAddToBasket(product._id, product.name, product.price, product.quantity, product.sum));
+
+    } catch (e) {
+      console.error(e);
+    }
+  };
+};
+
+export const loadLocalStore = () => {
+  return async (dispatch) => {
+    try {
+      const basket = JSON.parse(localStorage.getItem('basket')) || [];
+      dispatch(actionGetBasket(basket));
+
+    } catch (e) {
+      console.error(e);
+    }
+  };
+};
+export const updateLocalStorage = (id, type, value) => {
+  return async () => {
+    try {
+      const basket = JSON.parse(localStorage.getItem('basket')) || [];
+      basket.map((item) => {
+        if (item._id === id) {
+          if (type === 'quantity') item.quantity = value;
+          if (type === 'description') item.description = value;
+        }
+        return item;
+      });
+
+      localStorage.setItem('basket', JSON.stringify(basket));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+};
+
+export const deleteProductLocalStorage = (id) => {
+  return async (dispatch) => {
+    try {
+      const basket = JSON.parse(localStorage.getItem('basket')) || [];
+      let index = '';
+
+      for (const item of basket) {
+        if (item._id === id)
+          index = basket.indexOf(item);
+      }
+      basket.splice(index, 1);
+      localStorage.setItem('basket', JSON.stringify(basket));
+      dispatch(actionDeleteProduct(id));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+};
+
+export const deleteBasketLocalStorage = () => {
+  return async () => {
+    try {
+      localStorage.removeItem('basket');
+    } catch (e) {
+      console.error(e);
+    }
+  };
+};
 
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {
@@ -79,7 +156,7 @@ export const reducer = (statePart = [], action = {}) => {
 
     case UPDATE_BASKET:
       statePart.data.map(product => {
-        if (product.id === action.payload.id) {
+        if (product._id === action.payload._id) {
           product.quantity = action.payload.quantity;
           product.sum = parseInt(action.payload.quantity) * parseFloat(product.price);
         }
@@ -91,7 +168,7 @@ export const reducer = (statePart = [], action = {}) => {
 
     case DELETE_PRODUCT:
       for (const product of statePart.data) {
-        if (product.id === action.payload.id)
+        if (product._id === action.payload._id)
           statePart.data.splice(statePart.data.indexOf(product), 1);
       }
       return {
@@ -100,7 +177,7 @@ export const reducer = (statePart = [], action = {}) => {
 
     case ADD_DESCRIPTION:
       statePart.data.map(product => {
-        if (product.id === action.payload.id) {
+        if (product._id === action.payload._id) {
           product.description = action.payload.description;
         }
         return product;
@@ -112,6 +189,11 @@ export const reducer = (statePart = [], action = {}) => {
     case CLEAR_BASKET:
       return {
         data: [],
+      };
+
+    case GET_BASKET:
+      return {
+        data: action.payload,
       };
 
     default:

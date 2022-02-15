@@ -17,7 +17,7 @@ import { Button } from '../../common/Button/Button';
 
 import { connect } from 'react-redux';
 import { getAllProducts, getRequest, fetchProductIDFromDB } from '../../../redux/productsRedux.js';
-import { actionAddToBasket } from '../../../redux/basketRedux';
+import { postProductToLocalStorage } from '../../../redux/basketRedux';
 
 class Component extends React.Component {
 
@@ -44,13 +44,20 @@ class Component extends React.Component {
   }
 
   sendToState = () => {
-    const { addToBasket } = this.props;
+    const { productToLocalStorage } = this.props;
     const { name, price, quantity } = this.state;
     const sum = parseInt(quantity) * parseFloat(price);
     const id = new ObjectId();
     const _id = id.toString();
+    const product = {};
 
-    addToBasket(_id, name, price, quantity, sum);
+    product._id = _id;
+    product.name = name;
+    product.price = price;
+    product.quantity = quantity;
+    product.sum = sum;
+
+    productToLocalStorage(product);
   }
 
   render() {
@@ -141,7 +148,7 @@ class Component extends React.Component {
 Component.propTypes = {
   className: PropTypes.string,
   fetchData: PropTypes.func,
-  addToBasket: PropTypes.func,
+  productToLocalStorage: PropTypes.func,
   getProduct: PropTypes.array,
   getStatusBar: PropTypes.object,
   match: PropTypes.object,
@@ -154,7 +161,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchData: id => dispatch(fetchProductIDFromDB(id)),
-  addToBasket: (id, name, price, quantity, sum) => dispatch(actionAddToBasket(id, name, price, quantity, sum)),
+  productToLocalStorage: (product) => dispatch(postProductToLocalStorage(product)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

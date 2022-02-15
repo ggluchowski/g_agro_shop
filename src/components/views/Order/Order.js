@@ -24,7 +24,7 @@ import { getAllPaymentMethods, fetchPaymentMethodsFromDB } from '../../../redux/
 import { getAllDeliverys, fetchDeliverysFromDB } from '../../../redux/deliverysRedux';
 import { getAllAgreements, fetchAgreementsFromDB } from '../../../redux/agreementsRedux';
 
-import { actionClearBasket, getAll, sumAll } from '../../../redux/basketRedux';
+import { actionClearBasket, deleteBasketLocalStorage, getAll, sumAll } from '../../../redux/basketRedux';
 import { postContactToDB } from '../../../redux/contactsRedux';
 import { postOrderedProductToDB } from '../../../redux/orderedProductsRedux';
 import { postOrderToDB } from '../../../redux/orderRedux';
@@ -56,7 +56,7 @@ class Component extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const { sendContacts, sendBasket, getBasket, clearBasket, sendOrder } = this.props;
+    const { sendContacts, sendBasket, getBasket, clearBasket, sendOrder, deleteBasketLocal } = this.props;
 
     let contact = {};
     let order = {};
@@ -97,7 +97,7 @@ class Component extends React.Component {
     for (const item of getBasket) {
       item.orderID = orderID.toString();
       sum += item.sum;
-      orderedProduct.push(item.id);
+      orderedProduct.push(item._id);
     }
     sum = sum + this.state.delivery;
 
@@ -120,6 +120,7 @@ class Component extends React.Component {
       e.target.reset();
       clearBasket();
       this.setState({ delivery: 0 });
+      deleteBasketLocal();
     }
 
   }
@@ -345,6 +346,7 @@ Component.propTypes = {
   sendBasket: PropTypes.func,
   clearBasket: PropTypes.func,
   sendOrder: PropTypes.func,
+  deleteBasketLocal: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -363,6 +365,7 @@ const mapDispatchToProps = dispatch => ({
   sendBasket: (productTab) => dispatch(postOrderedProductToDB(productTab)),
   sendOrder: (order) => dispatch(postOrderToDB(order)),
   clearBasket: () => dispatch(actionClearBasket()),
+  deleteBasketLocal: () => dispatch(deleteBasketLocalStorage()),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

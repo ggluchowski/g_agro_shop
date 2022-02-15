@@ -7,6 +7,8 @@ router.post('/order', async (req, res) => {
   try {
     const { _id, payment, delivery, agreements, contactID, orderedProduct, sum } = req.body;
 
+    console.log(req.body);
+
     const newOrder = new Order({
       _id: _id,
       paymentMethod: payment,

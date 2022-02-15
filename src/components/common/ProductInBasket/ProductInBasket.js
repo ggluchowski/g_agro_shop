@@ -8,35 +8,49 @@ import { connect } from 'react-redux';
 
 import utils from '../../../utils/functions';
 
-import { actionDeleteProduct, actionUpdateBasket, actionAddDescription } from '../../../redux/basketRedux';
+import { deleteProductLocalStorage, actionUpdateBasket, actionAddDescription, updateLocalStorage } from '../../../redux/basketRedux';
 
-const Component = ({ className, id, name, quantity, price, description, updateProduct, deleteProduct, updateDescription }) => {
+const Component = ({ className, _id, name, quantity, price, description, updateProduct, deleteProduct, updateDescription, updateLS }) => {
 
   const [count, setCount] = useState(quantity);
 
-  function handleChangeTextarea (event) {
+  function handleChangeTextarea(event) {
     const text = event.target.value;
-    updateDescription(id, text);
+    updateDescription(_id, text);
+    updateLS(_id, 'description', text);
   }
 
   function increase() {
-    if (count >= 1 && count < 10)
+    if (count >= 1 && count < 10) {
       setCount(count + 1);
+      updateLS(_id, 'quantity', count + 1);
+    }
 
-    if (count === 10)
-      updateProduct(id, count);
-    else
-      updateProduct(id, count + 1);
+    if (count === 10) {
+      updateProduct(_id, count);
+      updateLS(_id, 'quantity', count);
+    }
+
+    else {
+      updateProduct(_id, count + 1);
+      updateLS(_id, 'quantity', count + 1);
+    }
   }
 
   function decrease() {
-    if (count > 1 && count <= 10)
+    if (count > 1 && count <= 10) {
       setCount(count - 1);
+      updateLS(_id, 'quantity', count - 1);
+    }
 
-    if (count === 1)
-      updateProduct(id, count);
-    else
-      updateProduct(id, count - 1);
+    if (count === 1) {
+      updateProduct(_id, count);
+      updateLS(_id, 'quantity', count);
+    }
+    else {
+      updateProduct(_id, count - 1);
+      updateLS(_id, 'quantity', count - 1);
+    }
   }
 
   return (
@@ -64,7 +78,7 @@ const Component = ({ className, id, name, quantity, price, description, updatePr
         <div className={styles.sum}>
           {utils.pricePrint(utils.sum(count, price))}
         </div>
-        <div onClick={() => deleteProduct(id)} className={styles.delete}>
+        <div onClick={() => deleteProduct(_id)} className={styles.delete}>
           X
         </div>
       </div>
@@ -84,7 +98,7 @@ const Component = ({ className, id, name, quantity, price, description, updatePr
 
 Component.propTypes = {
   className: PropTypes.string,
-  id: PropTypes.string,
+  _id: PropTypes.string,
   name: PropTypes.string,
   quantity: PropTypes.number,
   price: PropTypes.number,
@@ -95,20 +109,18 @@ Component.propTypes = {
   updateProduct: PropTypes.func,
   deleteProduct: PropTypes.func,
   updateDescription: PropTypes.func,
+  updateLS: PropTypes.func,
   description: PropTypes.string,
 };
 
-const mapStateToProps = state => ({
-  // someProp: reduxSelector(state),
-});
-
 const mapDispatchToProps = dispatch => ({
   updateProduct: (id, newQuantity) => dispatch(actionUpdateBasket(id, newQuantity)),
-  deleteProduct: (id) => dispatch(actionDeleteProduct(id)),
+  deleteProduct: (id) => dispatch(deleteProductLocalStorage(id)),
   updateDescription: (id, description) => dispatch(actionAddDescription(id, description)),
+  updateLS: (id, type, value) => dispatch(updateLocalStorage(id, type, value)),
 });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
   Container as ProductInBasket,
