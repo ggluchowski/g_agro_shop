@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "6201994119d3189e9e8e4bd0"
+  },
+  "name": "Odbior osobisty",
+  "price": 0
+},{
+  "_id": {
+    "$oid": "6201994119d3189e9e8e4bd1"
+  },
+  "name": "Kurier",
+  "price": 15
+},{
+  "_id": {
+    "$oid": "6201994119d3189e9e8e4bd2"
+  },
+  "name": "Paczkomat",
+  "price": 12
+}]

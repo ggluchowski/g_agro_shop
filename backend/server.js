@@ -39,8 +39,20 @@ app.use('*', (req, res) => {
 });
 
 /* MONGOOSE */
-mongoose.connect('mongodb://localhost:27017/agroShopDB', { useNewUrlParser: true, useUnifiedTopology: true });
+// connects backend code with the database
+// polaczenie z DB za pomoca Mongoose z podzialem na tryby servera
+const NODE_ENV = process.env.NODE_ENV;
+let dbUri = '';
+const user = process.env.userName;
+const password = process.env.userPassword;
+
+if (NODE_ENV === 'production') dbUri = 'mongodb+srv://' + user + ':' + password + '@ggcluster.3bhz4.mongodb.net/Agroshop?retryWrites=true&w=majority';
+else if (NODE_ENV === 'test') dbUri = 'mongodb://localhost:27017/agroShopDBtest';
+else dbUri = 'mongodb://localhost:27017/agroShopDB';
+
+mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
+
 db.once('open', () => {
   console.log('Successfully connected to the database');
 });

@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "61ffe3728092e336e61d14d9"
+  },
+  "name": "Akceptuję warunki <a src=\"https://poradnikprzedsiebiorcy.pl/-regulamin-sklepu-internetowego-wzor-z-omowieniem\" class=\"statute\">regulaminu</a><span class=\"asterisk\">*</span>",
+  "required": true
+},{
+  "_id": {
+    "$oid": "61ffe3728092e336e61d14da"
+  },
+  "name": "Wyrażam zgodę na przechowywanie i przetwarzanie moich danych osobowych przez firmę AGROSHOP <span class=\"asterisk\">*</span>",
+  "required": true
+},{
+  "_id": {
+    "$oid": "61ffe3728092e336e61d14db"
+  },
+  "name": "Chcę otrzymywać informacje o nowościach i promocjach! Zapisz mnie do newslettera.",
+  "required": false
+}]

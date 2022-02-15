@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "61ffe3148092e336e61d14d1"
+  },
+  "name": "Szybkie płatności online"
+},{
+  "_id": {
+    "$oid": "61ffe3148092e336e61d14d2"
+  },
+  "name": "Wpłata na konto bankowe"
+},{
+  "_id": {
+    "$oid": "61ffe3148092e336e61d14d3"
+  },
+  "name": "Płatność przy odbiorze"
+}]

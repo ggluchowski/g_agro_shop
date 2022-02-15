@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "61ef22814e2fc706a7546115"
+  },
+  "name": "Marchew",
+  "price": 5.5,
+  "ifQuantity": false,
+  "description": "Najlepsze marchewki pod słońcem. Aliquam congue vehicula purus non porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae ultrices odio. Donec euismod pretium purus efficitur maximus. Suspendisse potenti. Sed at rutrum nulla, non consectetur sem. Maecenas in urna auctor magna vulputate consectetur vitae sit amet ligula. Donec interdum laoreet mauris, eget ultricies odio blandit quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+  "images": [
+    "/images/Marchew-polska-1kg_[1813]_1200.jpg",
+    "/images/Marchew-polska-1kg_[1813]_1200.jpg",
+    "/images/Marchew-polska-1kg_[1813]_1200.jpg",
+    "/images/Marchew-polska-1kg_[1813]_1200.jpg"
+  ]
+},{
+  "_id": {
+    "$oid": "61ef22814e2fc706a7546116"
+  },
+  "name": "Kapusta",
+  "price": 9.8,
+  "ifQuantity": true,
+  "description": "Najlepsza kapusta pod słońcem. Donec tincidunt diam eu ante dapibus elementum. Fusce pharetra ut neque a dapibus. Maecenas nibh lectus, suscipit eu justo ac, placerat ullamcorper sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam ut nulla id sapien tempus luctus. Duis id porttitor sem. Phasellus rutrum urna dui, ac faucibus ipsum tristique quis. In non magna vel augue maximus finibus. Sed vitae auctor felis. Donec nec nibh mi. Maecenas facilisis mauris quis risus lacinia, vitae finibus elit ornare. Mauris eu dictum odio. Sed mi tortor, finibus accumsan rhoncus at, aliquet ac odio. Duis tempus facilisis ante, eget mattis nibh. Morbi tempor gravida nibh non accumsan. Donec id ultricies lorem.",
+  "images": [
+    "/images/KAPUSTA-MLODA-POLSKA-SZT_[1610]_1200.jpg",
+    "/images/KAPUSTA-MLODA-POLSKA-SZT_[1610]_1200.jpg",
+    "/images/KAPUSTA-MLODA-POLSKA-SZT_[1610]_1200.jpg",
+    "/images/KAPUSTA-MLODA-POLSKA-SZT_[1610]_1200.jpg"
+  ]
+},{
+  "_id": {
+    "$oid": "61ef22814e2fc706a7546117"
+  },
+  "name": "Pomidory",
+  "price": 19,
+  "ifQuantity": false,
+  "description": "Najlepsze pomidory pod słońcem. Integer sit amet tincidunt ante. Praesent sollicitudin porta nisl eu posuere. Praesent feugiat arcu ut nibh tempus, vel auctor massa lobortis. Mauris porta purus in turpis vulputate viverra. In id placerat turpis, eget condimentum enim. Phasellus vestibulum viverra leo dictum euismod. Nulla facilisi. Etiam mollis eget augue vel fringilla.",
+  "images": [
+    "/images/Pomidor-malinowy-kg_[1757]_1200.jpg",
+    "/images/Pomidor-malinowy-kg_[1757]_1200.jpg",
+    "/images/Pomidor-malinowy-kg_[1757]_1200.jpg",
+    "/images/Pomidor-malinowy-kg_[1757]_1200.jpg"
+  ]
+},{
+  "_id": {
+    "$oid": "61ef22814e2fc706a7546118"
+  },
+  "name": "Jabłka",
+  "price": 4.3,
+  "ifQuantity": false,
+  "description": "Najlepsze jabłka pod słońcem. Donec eros massa, dictum eu accumsan at, gravida in massa. Nunc enim lectus, tempor semper ultricies quis, congue a est. Nam fermentum purus eu nisi faucibus, imperdiet accumsan velit pulvinar. Proin commodo neque vitae enim gravida, sit amet egestas lacus ultrices. Suspendisse a tortor faucibus, lacinia neque sit amet, auctor arcu. Pellentesque semper ante felis. Donec interdum auctor luctus. Sed id velit ut mi pulvinar rutrum euismod quis leo. Integer ultricies libero est, ut facilisis elit aliquam sit amet. Curabitur non ipsum at nunc imperdiet mattis. Nunc maximus vitae enim vitae pharetra. Phasellus id lacus non tellus volutpat accumsan quis eu eros. Sed tortor ex, maximus et erat vel, pharetra fermentum enim.",
+  "images": [
+    "/images/Jablka-z-polskiego-sadu-1kg-Idared_[893]_1200.jpg",
+    "/images/Jablka-z-polskiego-sadu-1kg-Idared_[893]_1200.jpg",
+    "/images/Jablka-z-polskiego-sadu-1kg-Idared_[893]_1200.jpg",
+    "/images/Jablka-z-polskiego-sadu-1kg-Idared_[893]_1200.jpg"
+  ]
+},{
+  "_id": {
+    "$oid": "61ef22814e2fc706a7546119"
+  },
+  "name": "Ogórki",
+  "price": 6.5,
+  "ifQuantity": false,
+  "description": "Najlepsze ogórki pod słońcem. Duis viverra condimentum lacus a hendrerit. Morbi porttitor turpis ut felis efficitur dictum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur at erat et turpis tincidunt lobortis. Vestibulum in congue nisi. Cras est enim, tempus et varius vel, dapibus sed tortor. Integer sed risus pretium, venenatis ante in, lacinia magna. Nullam non purus sodales, tristique nisl a, egestas mauris. Pellentesque vulputate rutrum tortor, sed euismod orci rhoncus non. Quisque eget est consectetur, mattis odio in, tincidunt mi. Maecenas tempor elit quam. Nullam rutrum ultricies augue eget feugiat. Aliquam erat volutpat.",
+  "images": [
+    "/images/Ogorek-gruntowy-krotki-kg_[1756]_1200.jpg",
+    "/images/Ogorek-gruntowy-krotki-kg_[1756]_1200.jpg",
+    "/images/Ogorek-gruntowy-krotki-kg_[1756]_1200.jpg",
+    "/images/Ogorek-gruntowy-krotki-kg_[1756]_1200.jpg"
+  ]
+},{
+  "_id": {
+    "$oid": "61ef22814e2fc706a754611a"
+  },
+  "name": "Ziemniaki",
+  "price": 5,
+  "ifQuantity": false,
+  "description": "Najlepsze ziemniaki pod słońcem. Nullam viverra arcu sit amet nisl dignissim blandit. Mauris a leo lectus. Aliquam erat volutpat. Nullam euismod tortor bibendum, lobortis nisi vel, tempus leo. Nulla et porttitor tortor. Suspendisse potenti. Pellentesque luctus, mauris ac auctor laoreet, risus neque ornare ante, ut ornare lectus libero laoreet dui. Morbi non velit id odio pulvinar commodo.",
+  "images": [
+    "/images/ZIEMNIAKI-MLODE-KG_[1770]_1200.jpg",
+    "/images/ZIEMNIAKI-MLODE-KG_[1770]_1200.jpg",
+    "/images/ZIEMNIAKI-MLODE-KG_[1770]_1200.jpg",
+    "/images/ZIEMNIAKI-MLODE-KG_[1770]_1200.jpg"
+  ]
+}]
