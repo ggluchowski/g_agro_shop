@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { API_URL } from '../config';
 
 /* selectors */
 export const getAllPaymentMethods = ({ paymentMethods }) => paymentMethods.data;
@@ -23,7 +24,7 @@ export const fetchPaymentMethodsFromDB = () => {
     dispatch(fetchStarted());
 
     Axios
-      .get('http://localhost:8000/api/paymentMethods')
+      .get(`${API_URL}/paymentMethods`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
 

@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { API_URL } from '../config';
 
 /* selectors */
 export const getAllDeliverys = ({ deliverys }) => deliverys.data;
@@ -23,7 +24,7 @@ export const fetchDeliverysFromDB = () => {
     dispatch(fetchStarted());
 
     Axios
-      .get('http://localhost:8000/api/deliverys')
+      .get(`${API_URL}/deliverys`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
       })

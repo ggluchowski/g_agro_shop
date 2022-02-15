@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { API_URL } from '../config';
 
 /* selectors */
 
@@ -22,7 +23,7 @@ export const postOrderToDB = (order) => {
     dispatch(fetchStarted());
 
     Axios
-      .post('http://localhost:8000/api/order', order)
+      .post(`${API_URL}/order`, order)
       .then(res => {
         dispatch(fetchSuccess(order));
       })

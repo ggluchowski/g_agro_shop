@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { API_URL } from '../config';
 
 /* selectors */
 
@@ -22,7 +23,7 @@ export const postContactToDB = (data) => {
     dispatch(fetchStarted());
 
     Axios
-      .post('http://localhost:8000/api/contacts', data)
+      .post(`${API_URL}/contacts`, data)
       .then(res => {
         dispatch(fetchSuccess(data));
       })

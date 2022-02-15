@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { API_URL } from '../config';
 
 /* selectors */
 export const getAllAgreements = ({ agreements }) => agreements.data;
@@ -23,7 +24,7 @@ export const fetchAgreementsFromDB = () => {
     dispatch(fetchStarted());
 
     Axios
-      .get('http://localhost:8000/api/agreements')
+      .get(`${API_URL}/agreements`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
       })
