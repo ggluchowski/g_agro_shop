@@ -41,7 +41,7 @@ export const fetchProductIDFromDB = (id) => {
     dispatch(fetchStarted());
 
     await Axios
-      .get(`http://localhost:8000/api/products/${id}`)
+      .get(`${API_URL}/products/${id}`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
       })

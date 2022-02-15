@@ -1,6 +1,8 @@
 {
   "name": "g_agro_shop",
   "version": "0.1.0",
+  "repository": "git@github.com:ggluchowski/g_agro_shop.git",
+  "author": "Grzegorz Głuchowski <ggrzegorz89@gmail.com>",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.3.0-beta3",
@@ -56,7 +58,7 @@
     "start:react": "react-scripts start",
     "start-and-test": "run-p start-silent test ",
     "server": "nodemon ./backend/server.js",
-    "build": "set NODE_ENV=production && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test --noStackTrace",
     "test-all": "react-scripts test --watchAll=false --noStackTrace",
     "test-related": "react-scripts test --watchAll=false --noStackTrace --findRelatedTests",

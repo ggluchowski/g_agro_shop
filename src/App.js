@@ -31,6 +31,7 @@ class App extends React.Component {
   componentDidMount() {
     const { getLocalStore } = this.props;
     getLocalStore();
+    console.log(process.env);
   }
 
   render() {
