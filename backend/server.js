@@ -46,7 +46,7 @@ let dbUri = '';
 const user = process.env.userName;
 const password = process.env.userPassword;
 
-if (NODE_ENV === 'production') dbUri = 'mongodb+srv://' + user + ':' + password + '@ggcluster.3bhz4.mongodb.net/Agroshop?retryWrites=true&w=majority';
+if (NODE_ENV === 'production') dbUri = 'mongodb+srv://ggrzegorz89:yfVAsYW6CA7kAeJ@ggcluster.3bhz4.mongodb.net/Agroshop?retryWrites=true&w=majority';
 else if (NODE_ENV === 'test') dbUri = 'mongodb://localhost:27017/agroShopDBtest';
 else dbUri = 'mongodb://localhost:27017/agroShopDB';
 
