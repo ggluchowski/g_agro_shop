@@ -27,7 +27,6 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "express": "4.17.1",
-    "firebase-functions": "^3.18.0",
     "mongo-objectid": "^1.2.2",
     "mongoose": "5.7.1",
     "monodb": "^1.5.1",

@@ -4,6 +4,7 @@ import { AppContainer } from './App';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
 // import reportWebVitals from './reportWebVitals';
+// Import the functions you need from the SDKs you need
 
 ReactDOM.render(
   <React.StrictMode>
